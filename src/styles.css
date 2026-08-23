@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #1e1e1e;
+  background: #fff8ef;
+  font-family: Inter, Aptos, "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(240, 112, 0, 0.45);
+  outline-offset: 3px;
+}
+
+@layer components {
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .page-hero {
+    @apply relative overflow-hidden bg-rysen-ink text-white;
+  }
+
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(240, 112, 0, 0.32), transparent 32%),
+      radial-gradient(circle at 88% 45%, rgba(240, 64, 0, 0.18), transparent 34%),
+      linear-gradient(135deg, rgba(255, 248, 239, 0.06), transparent 42%);
+    pointer-events: none;
+  }
+
+  .page-hero > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.26em] text-rysen-orange;
+  }
+
+  .hero-title {
+    @apply font-display text-5xl leading-[1.04] text-white md:text-7xl;
+  }
+
+  .prose-rysen {
+    @apply space-y-5 text-lg leading-8 text-rysen-charcoal/75;
+  }
+}
+
+.rich-editor:empty::before {
+  color: rgba(68, 68, 68, 0.42);
+  content: attr(data-placeholder);
+  pointer-events: none;
+}
+
+.rich-editor h2,
+.article-rich-content h2 {
+  color: #111111;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  line-height: 1.18;
+  margin: 2.2rem 0 0.8rem;
+}
+
+.rich-editor h3,
+.article-rich-content h3 {
+  color: #111111;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 1.8rem 0 0.65rem;
+}
+
+.rich-editor p,
+.article-rich-content p {
+  margin: 0 0 1.35rem;
+}
+
+.rich-editor ul,
+.article-rich-content ul,
+.rich-editor ol,
+.article-rich-content ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.6rem;
+}
+
+.rich-editor ul,
+.article-rich-content ul {
+  list-style: disc;
+}
+
+.rich-editor ol,
+.article-rich-content ol {
+  list-style: decimal;
+}
+
+.rich-editor li,
+.article-rich-content li {
+  margin: 0.35rem 0;
+}
+
+.rich-editor blockquote,
+.article-rich-content blockquote {
+  border-left: 4px solid #f07000;
+  color: rgba(68, 68, 68, 0.82);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 2rem 0;
+  padding: 0.5rem 0 0.5rem 1.3rem;
+}
+
+.rich-editor a,
+.article-rich-content a {
+  color: #d95a00;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-rich-content {
+  color: rgba(68, 68, 68, 0.82);
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+::selection {
+  background: rgba(240, 112, 0, 0.25);
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.logo-marquee-left {
+  animation: logo-marquee-left 55s linear infinite;
+}
+
+.logo-marquee-right {
+  animation: logo-marquee-right 55s linear infinite;
+}
+
+.logo-marquee-row:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes logo-marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes logo-marquee-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}

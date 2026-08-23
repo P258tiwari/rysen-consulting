@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Executive presence boardroom</title><desc id="desc">A leader presenting with confidence in a modern boardroom.</desc>
+  <rect width="900" height="620" fill="#090909"/>
+  <circle cx="730" cy="130" r="150" fill="#F07000" opacity=".18"/>
+  <rect x="90" y="110" width="720" height="370" rx="26" fill="#FFF8EF"/>
+  <rect x="136" y="162" width="278" height="216" rx="18" fill="#1E1E1E"/>
+  <path d="M168 324c50-82 96-82 138 0 47-118 94-137 141-55" fill="none" stroke="#F07000" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="600" cy="235" r="52" fill="#F5E8D6"/><path d="M508 405c19-99 164-99 184 0v75H508z" fill="#F07000"/>
+  <rect x="110" y="508" width="680" height="26" rx="13" fill="#F09000"/>
+</svg>

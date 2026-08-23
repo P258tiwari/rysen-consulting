@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Inclusive culture workshop</title><desc id="desc">A collaborative culture workshop with diverse teams around a shared table.</desc>
+  <rect width="900" height="620" fill="#F5E8D6"/>
+  <path d="M0 0h900v245c-158 74-294 70-408 25S274 144 0 226z" fill="#090909"/>
+  <ellipse cx="450" cy="370" rx="265" ry="106" fill="#fff"/>
+  <ellipse cx="450" cy="370" rx="190" ry="62" fill="#FFF8EF"/>
+  <g fill="#1E1E1E"><circle cx="226" cy="302" r="40"/><circle cx="674" cy="302" r="40"/><circle cx="325" cy="468" r="38"/><circle cx="575" cy="468" r="38"/></g>
+  <g fill="#F07000"><path d="M160 430c14-74 118-74 132 0v44H160z"/><path d="M608 430c14-74 118-74 132 0v44H608z"/><path d="M262 570c13-70 113-70 126 0v26H262z"/><path d="M512 570c13-70 113-70 126 0v26H512z"/></g>
+  <path d="M220 158c70-58 140-58 210 0s140 58 210 0" fill="none" stroke="#F07000" stroke-width="22" stroke-linecap="round"/>
+</svg>

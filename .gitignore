@@ -1,0 +1,29 @@
+# Dependencies and generated output
+node_modules/
+dist/
+coverage/
+.npm-cache/
+.eslintcache
+*.tsbuildinfo
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Runtime backend data
+server/data/*.json
+server/data/*.tmp
+
+# Logs and temporary checks
+*.log
+logs/
+.prod-check-*.txt
+
+# Local editor and agent state
+.vscode/
+.idea/
+.agents/
+.codex/
+.DS_Store
+Thumbs.db

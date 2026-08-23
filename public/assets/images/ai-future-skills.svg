@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">AI future skills lab</title><desc id="desc">A technology learning lab with connected AI nodes and orange accents.</desc>
+  <rect width="900" height="620" fill="#090909"/>
+  <rect x="85" y="95" width="730" height="430" rx="30" fill="#FFF8EF"/>
+  <g stroke="#F07000" stroke-width="10" stroke-linecap="round" opacity=".85">
+    <path d="M262 302h134l92-92h150"/><path d="M396 302l92 95h150"/><path d="M396 302h242"/>
+  </g>
+  <g fill="#1E1E1E"><circle cx="248" cy="302" r="54"/><circle cx="660" cy="210" r="44"/><circle cx="660" cy="397" r="44"/><circle cx="660" cy="302" r="44"/></g>
+  <g fill="#F07000"><circle cx="248" cy="302" r="20"/><circle cx="660" cy="210" r="16"/><circle cx="660" cy="397" r="16"/><circle cx="660" cy="302" r="16"/></g>
+  <path d="M140 455c94-52 172-48 250-16s160 36 300-32" fill="none" stroke="#F09000" stroke-width="18" stroke-linecap="round" opacity=".6"/>
+</svg>

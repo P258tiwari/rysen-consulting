@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Talent strategy system</title><desc id="desc">A talent strategy network with assessment and succession pathways.</desc>
+  <rect width="900" height="620" fill="#FFF8EF"/>
+  <rect x="90" y="100" width="720" height="420" rx="30" fill="#090909"/>
+  <g stroke="#F09000" stroke-width="8" opacity=".85"><path d="M250 250h200l150-84"/><path d="M250 250l200 118h210"/><path d="M450 368V250"/></g>
+  <g fill="#fff"><circle cx="250" cy="250" r="58"/><circle cx="450" cy="250" r="52"/><circle cx="600" cy="166" r="46"/><circle cx="450" cy="368" r="52"/><circle cx="660" cy="368" r="46"/></g>
+  <g fill="#F07000"><circle cx="250" cy="250" r="22"/><circle cx="450" cy="250" r="20"/><circle cx="600" cy="166" r="18"/><circle cx="450" cy="368" r="20"/><circle cx="660" cy="368" r="18"/></g>
+</svg>

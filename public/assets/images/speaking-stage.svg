@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" role="img" aria-labelledby="title desc">
+  <title id="title">Leadership keynote stage</title><desc id="desc">A warm keynote stage for leadership forums and corporate events.</desc>
+  <rect width="1000" height="650" fill="#090909"/>
+  <circle cx="500" cy="212" r="170" fill="#F07000" opacity=".22"/>
+  <rect x="170" y="110" width="660" height="310" rx="26" fill="#FFF8EF"/>
+  <path d="M265 220c78-66 156-66 234 0s156 66 234 0" fill="none" stroke="#F07000" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="500" cy="350" r="54" fill="#1E1E1E"/><path d="M410 498c18-96 162-96 180 0v56H410z" fill="#F07000"/>
+  <path d="M90 574c136-68 272-68 408 0s272 68 408 0" fill="none" stroke="#F09000" stroke-width="24" stroke-linecap="round" opacity=".9"/>
+</svg>
