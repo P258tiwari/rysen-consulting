@@ -5,7 +5,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
-ARG VITE_SITE_URL=https://rysenconsulting.com
+ARG VITE_SITE_URL=https://www.rysenconsulting.com
 ARG VITE_RECAPTCHA_SITE_KEY
 ENV VITE_SITE_URL=$VITE_SITE_URL
 ENV VITE_RECAPTCHA_SITE_KEY=$VITE_RECAPTCHA_SITE_KEY

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin
 
-Sitemap: https://rysenconsulting.com/sitemap.xml
+Sitemap: https://www.rysenconsulting.com/sitemap.xml

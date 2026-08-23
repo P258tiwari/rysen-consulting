@@ -22,7 +22,7 @@ const databasePath = resolve(serverDirectory, "data", "db.json");
 const distributionDirectory = resolve(projectDirectory, "dist");
 const port = Number(process.env.PORT || 8787);
 const host = String(process.env.HOST || (process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1"));
-const siteOrigin = String(process.env.SITE_URL || "https://rysenconsulting.com").replace(/\/$/, "");
+const siteOrigin = String(process.env.SITE_URL || "https://www.rysenconsulting.com").replace(/\/$/, "");
 const recaptchaSecretKey = String(process.env.RECAPTCHA_SECRET_KEY || "").trim();
 const configuredRecaptchaScore = Number(process.env.RECAPTCHA_MIN_SCORE || 0.5);
 const recaptchaMinimumScore = Number.isFinite(configuredRecaptchaScore) ? Math.min(1, Math.max(0, configuredRecaptchaScore)) : 0.5;

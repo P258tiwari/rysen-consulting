@@ -39,8 +39,8 @@ NODE_ENV=production
 HOST=0.0.0.0
 PORT=8787
 ADMIN_PASSWORD=use-a-long-unique-password
-SITE_URL=https://rysenconsulting.com
-VITE_SITE_URL=https://rysenconsulting.com
+SITE_URL=https://www.rysenconsulting.com
+VITE_SITE_URL=https://www.rysenconsulting.com
 VITE_RECAPTCHA_SITE_KEY=your-public-recaptcha-v3-site-key
 RECAPTCHA_SECRET_KEY=your-private-recaptcha-v3-secret-key
 RECAPTCHA_MIN_SCORE=0.5
@@ -53,12 +53,12 @@ Register reCAPTCHA v3 keys for the production domain in the Google reCAPTCHA con
 ## Docker deployment
 
 ```bash
-docker build --build-arg VITE_SITE_URL="https://rysenconsulting.com" \
+docker build --build-arg VITE_SITE_URL="https://www.rysenconsulting.com" \
   --build-arg VITE_RECAPTCHA_SITE_KEY="your-public-site-key" \
   -t rysen-leadership .
 docker run -d --name rysen-leadership -p 8787:8787 \
   -e ADMIN_PASSWORD="use-a-long-unique-password" \
-  -e SITE_URL="https://rysenconsulting.com" \
+  -e SITE_URL="https://www.rysenconsulting.com" \
   -e RECAPTCHA_SECRET_KEY="your-private-secret-key" \
   -e RECAPTCHA_MIN_SCORE="0.5" \
   -v rysen-data:/app/server/data \
