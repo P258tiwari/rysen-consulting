@@ -106,9 +106,9 @@ export function About() {
       <section className="section bg-rysen-ivory">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <p className="eyebrow">About Bidisha</p>
+            <p className="eyebrow">Bidisha Banerjee</p>
             <h2 className="mt-5 max-w-5xl font-display text-5xl leading-[1.02] text-rysen-ink sm:text-6xl lg:text-7xl">
-              I am Bidisha<br className="hidden sm:block" /> Banerjee.
+              About Our Founder
             </h2>
             <p className="mt-5 text-xl font-semibold text-rysen-orange sm:text-2xl">Founder &amp; CEO</p>
           </Reveal>
@@ -126,10 +126,10 @@ export function About() {
           <Reveal delay={0.14}>
             <div className="mt-10 max-w-5xl space-y-6 text-xl leading-9 text-rysen-charcoal/75 sm:text-2xl sm:leading-10">
               <p>
-                With over 25 years of global and Indian experience as a former CHRO and Chief Learning Officer, I&apos;ve sat on both sides of the table.
+                With over 25 years of leadership experience across India and global markets, Bidisha brings a distinctive perspective shaped by her experience as a former CHRO and Chief Learning Officer.
               </p>
               <p>
-                I know what organisations look for in the leaders they back — and I know exactly what gets in the way.
+                Having worked at the intersection of business strategy, talent and leadership, she understands what organisations look for in their leaders, the challenges that hold them back, and what it takes to unlock their potential.
               </p>
             </div>
           </Reveal>
