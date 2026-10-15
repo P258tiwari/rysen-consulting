@@ -181,13 +181,13 @@ export function Home() {
               <div className="relative h-full min-h-[390px] overflow-hidden rounded-2xl border-4 border-rysen-orange shadow-warm">
                 <img
                   src="/assets/images/bidisha-portrait-smile.webp"
-                  alt="Bidisha Banerjee, executive coach and founder of RYSEN"
+                  alt="Bidisha Banerjee, Founder & CEO of RYSEN"
                   className="absolute inset-0 h-full w-full object-cover object-top"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-rysen-ink via-rysen-ink/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-7">
-                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-rysen-orange">Founder / Lead</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-rysen-orange">Founder &amp; CEO</p>
                   <h2 className="mt-3 font-display text-4xl">Bidisha Banerjee</h2>
                   <p className="mt-3 max-w-md text-sm leading-6 text-white/80 sm:text-base">
                     Executive Coach · Leadership Facilitator · Talent Strategist · Author · Keynote Speaker

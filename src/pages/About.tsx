@@ -23,7 +23,7 @@ export function About() {
     <>
       <Seo
         title="About Bidisha Banerjee"
-        description="Learn about Bidisha Banerjee, founder of RYSEN Leadership and Coaching, executive coach, facilitator, talent strategist, author, and keynote speaker."
+        description="Learn about Bidisha Banerjee, Founder & CEO of RYSEN Leadership and Coaching, executive coach, facilitator, talent strategist, author, and keynote speaker."
         path="/about"
       />
       <section className="page-hero">
@@ -31,6 +31,7 @@ export function About() {
           <Reveal>
             <p className="eyebrow">About RYSEN</p>
             <h1 className="hero-title !text-4xl sm:!text-5xl lg:!text-6xl">Bidisha Banerjee</h1>
+            <p className="mt-4 text-xl font-semibold text-rysen-orange">Founder &amp; CEO</p>
             <p className="mt-6 max-w-3xl text-xl leading-9 text-white/75">
               Executive Coach, Leadership Facilitator, Talent Strategist, Author, and Keynote Speaker.
             </p>
@@ -39,7 +40,7 @@ export function About() {
             <div className="overflow-hidden rounded-lg border border-white/10 bg-white/10 backdrop-blur">
               <img
                 src="/assets/images/bidisha-portrait-hero.webp"
-                alt="Bidisha Banerjee, founder and lead executive coach at RYSEN"
+                alt="Bidisha Banerjee, Founder & CEO of RYSEN"
                 className="aspect-[5/4] w-full object-cover"
                 decoding="async"
                 fetchPriority="high"
@@ -109,6 +110,7 @@ export function About() {
             <h2 className="mt-5 max-w-5xl font-display text-5xl leading-[1.02] text-rysen-ink sm:text-6xl lg:text-7xl">
               I am Bidisha<br className="hidden sm:block" /> Banerjee.
             </h2>
+            <p className="mt-5 text-xl font-semibold text-rysen-orange sm:text-2xl">Founder &amp; CEO</p>
           </Reveal>
 
           <Reveal delay={0.08}>
