@@ -154,6 +154,11 @@ textarea:focus-visible {
   line-height: 1.9;
 }
 
+/* reCAPTCHA branding and policy links remain visible in ContactForm. */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
 ::selection {
   background: rgba(240, 112, 0, 0.25);
 }

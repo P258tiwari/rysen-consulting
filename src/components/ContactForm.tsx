@@ -122,7 +122,7 @@ export function ContactForm() {
         placeholder="Message"
         aria-label="Message"
       />
-      <p className="mt-4 text-xs leading-5 text-rysen-charcoal/45">
+      <p className="mt-4 text-xs leading-5 text-rysen-charcoal/75">
         This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="underline hover:text-rysen-orange">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noreferrer" className="underline hover:text-rysen-orange">Terms of Service</a> apply.
       </p>
       {error && <p className="mt-4 text-sm font-semibold text-rysen-ember">{error}</p>}
