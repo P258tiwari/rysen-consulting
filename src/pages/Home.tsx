@@ -56,9 +56,11 @@ export function Home() {
           <Reveal delay={0.14}>
             <div className="relative overflow-hidden rounded-lg bg-rysen-ink shadow-executive">
               <img
-                src="/assets/images/generated-leadership-workshop.webp"
-                alt="Diverse senior executives in a warm leadership workshop"
+                src="/assets/images/leadership-workshop-hero.webp"
+                alt="Facilitator guiding Indian business professionals through a leadership workshop"
                 className="aspect-[16/11] w-full object-cover"
+                width={1440}
+                height={990}
                 decoding="async"
                 fetchPriority="high"
               />
