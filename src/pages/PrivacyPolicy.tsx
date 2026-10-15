@@ -21,7 +21,7 @@ export function PrivacyPolicy() {
                 Coaching, facilitation, assessment, and consulting engagements may involve additional confidentiality and data handling terms agreed directly with the client organisation.
               </p>
               <p>
-                To request access, correction, or deletion of information you have shared with us, contact bidisha@rysencoaching.com.
+                To request access, correction, or deletion of information you have shared with us, contact Bidisha@rysenconsulting.com.
               </p>
             </div>
           </Reveal>

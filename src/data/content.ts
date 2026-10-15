@@ -43,7 +43,7 @@ export type CaseStudy = {
 };
 
 export const contact = {
-  email: "bidisha@rysencoaching.com",
+  email: "Bidisha@rysenconsulting.com",
   phone: "+91 74980 78920",
 };
 
