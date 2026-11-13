@@ -86,38 +86,27 @@ function ContactEntryCard({ entry, busy, onSave, onDelete }: {
     setNotes(entry.notes);
   }, [entry]);
 
+  const dirty = status !== entry.status || notes !== entry.notes;
   return (
     <article className="bg-white p-5 sm:p-7">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-rysen-orange">{entry.interest}</p>
-          <h3 className="mt-2 text-2xl font-semibold text-rysen-ink">{entry.name}</h3>
-          <p className="mt-1 text-sm text-rysen-charcoal/50">{new Date(entry.createdAt).toLocaleString()}</p>
+      <header className="flex items-start justify-between gap-4 border-b border-slate-100 pb-5">
+        <div className="min-w-0">
+          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-rysen-orange">{entry.interest}</p>
+          <h3 className="mt-2 break-words text-2xl font-semibold tracking-tight text-slate-900">{entry.name}</h3>
+          <p className="mt-2 text-xs text-slate-400">Received {new Date(entry.createdAt).toLocaleString()}</p>
         </div>
-        <span className={`rounded-full px-3 py-1 text-xs font-bold ${status === "New" ? "bg-orange-100 text-orange-800" : status === "Contacted" ? "bg-blue-100 text-blue-800" : "bg-green-100 text-green-800"}`}>{status}</span>
+        <label className="shrink-0 text-right"><span className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-slate-400">Status</span><select aria-label="Enquiry status" disabled={busy} value={status} onChange={event => setStatus(event.target.value as ContactEntry["status"])} className={`min-h-10 max-w-32 cursor-pointer !rounded-full border !px-3 py-2 text-xs font-semibold ${status === "New" ? "!border-orange-200 !bg-orange-50 text-orange-800" : status === "Contacted" ? "!border-blue-200 !bg-blue-50 text-blue-800" : "!border-emerald-200 !bg-emerald-50 text-emerald-800"}`}><option>New</option><option>Contacted</option><option>Closed</option></select></label>
+      </header>
+      <div className="my-6 grid gap-5 rounded-xl border border-slate-100 bg-slate-50/70 p-4 sm:grid-cols-2">
+        <div className="min-w-0"><p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-slate-400">Contact details</p><a href={`mailto:${entry.email}`} className="flex items-start gap-2 break-all text-sm font-medium text-slate-700 hover:text-rysen-orange"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />{entry.email}</a>{entry.phone && <a href={`tel:${entry.phone.replace(/\s/g, "")}`} className="mt-3 flex items-center gap-2 text-sm text-slate-600 hover:text-rysen-orange"><Phone className="h-4 w-4 shrink-0 text-slate-400" />{entry.phone}</a>}</div>
+        <div className="min-w-0"><p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-slate-400">Organisation &amp; role</p><p className="break-words text-sm font-medium text-slate-700">{entry.organisation || "Not provided"}</p><p className="mt-2 break-words text-sm text-slate-500">{entry.role || "Role not provided"}</p></div>
       </div>
-
-      <div className="mt-5 grid gap-2 text-sm text-rysen-charcoal/70">
-        <a href={`mailto:${entry.email}`} className="inline-flex items-center gap-2 break-all font-semibold hover:text-rysen-orange"><Mail className="h-4 w-4" /> {entry.email}</a>
-        {entry.phone && <a href={`tel:${entry.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 font-semibold hover:text-rysen-orange"><Phone className="h-4 w-4" /> {entry.phone}</a>}
-        {entry.organisation && <p><strong className="text-rysen-ink">Organisation:</strong> {entry.organisation}</p>}
-        {entry.role && <p><strong className="text-rysen-ink">Role:</strong> {entry.role}</p>}
-      </div>
-
-      <div className="mt-5 rounded-lg bg-rysen-ivory p-4">
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-rysen-charcoal/45">Message</p>
-        <p className="mt-2 whitespace-pre-wrap leading-7 text-rysen-charcoal/75">{entry.message}</p>
-      </div>
-
-      <div className="mt-5 grid gap-4 sm:grid-cols-[0.4fr_1fr]">
-        <label><span className="text-xs font-bold uppercase tracking-[0.16em] text-rysen-charcoal/45">Status</span><select value={status} onChange={(event) => setStatus(event.target.value as ContactEntry["status"])} className="mt-2 min-h-11 w-full rounded-md border border-rysen-ink/10 px-3"><option>New</option><option>Contacted</option><option>Closed</option></select></label>
-        <label><span className="text-xs font-bold uppercase tracking-[0.16em] text-rysen-charcoal/45">Follow-up Notes</span><textarea value={notes} onChange={(event) => setNotes(event.target.value)} className="mt-2 min-h-24 w-full resize-y rounded-md border border-rysen-ink/10 p-3 outline-none focus:border-rysen-orange" /></label>
-      </div>
-
-      <div className="mt-5 flex flex-wrap gap-2 border-t border-rysen-ink/10 pt-5">
-        <button type="button" disabled={busy} onClick={() => onSave(entry, status, notes)} className="inline-flex items-center gap-2 rounded-full bg-rysen-ink px-4 py-2 text-sm font-bold text-white"><Save className="h-4 w-4" /> Save Follow-up</button>
-        <button type="button" disabled={busy} onClick={() => onDelete(entry)} className="inline-flex items-center gap-2 rounded-full border border-rysen-ink/10 px-4 py-2 text-sm font-bold text-rysen-charcoal hover:text-rysen-ember"><Trash2 className="h-4 w-4" /> Delete</button>
-      </div>
+      <section><h4 className="text-sm font-semibold text-slate-900">Enquiry message</h4><div className="mt-3 rounded-r-xl border-l-2 border-orange-300 bg-orange-50/50 px-4 py-4"><p className="whitespace-pre-wrap break-words text-sm leading-7 text-slate-700">{entry.message}</p></div></section>
+      <label className="mt-6 block"><span className="text-sm font-semibold text-slate-900">Follow-up notes</span><span className="mt-1 block text-xs text-slate-400">Record your next step and any conversation updates.</span><textarea disabled={busy} value={notes} onChange={event => setNotes(event.target.value)} placeholder="Add a follow-up note..." className="mt-3 min-h-28 w-full resize-y border border-slate-200 p-4 text-sm leading-6 outline-none focus:border-rysen-orange" /></label>
+      <footer className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
+        <button type="button" disabled={busy} onClick={() => onDelete(entry)} className="inline-flex min-h-10 items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-500 hover:border-red-200 hover:bg-red-50 hover:text-red-600"><Trash2 className="h-4 w-4" />Delete</button>
+        <div className="flex flex-wrap items-center gap-3"><span role="status" className="text-xs text-slate-400">{dirty ? "Unsaved changes" : "Up to date"}</span><button type="button" disabled={busy || !dirty} onClick={() => onSave(entry, status, notes)} className="inline-flex min-h-10 items-center gap-2 rounded-full bg-rysen-ink px-5 py-2 text-sm font-semibold text-white hover:bg-rysen-orange"><Save className="h-4 w-4" />{busy ? "Please wait..." : "Save changes"}</button></div>
+      </footer>
     </article>
   );
 }
