@@ -22,25 +22,23 @@ function recaptchaApi() {
   return (window as Window & { grecaptcha?: RecaptchaApi }).grecaptcha;
 }
 
+let recaptchaLoading: Promise<void> | null = null;
 function loadRecaptcha(siteKey: string) {
   if (recaptchaApi()) return Promise.resolve();
-  return new Promise<void>((resolve, reject) => {
-    const existing = document.getElementById("rysen-recaptcha-v3") as HTMLScriptElement | null;
-    const ready = () => recaptchaApi() ? resolve() : reject(new Error("Bot protection could not be loaded."));
-    if (existing) {
-      existing.addEventListener("load", ready, { once: true });
-      existing.addEventListener("error", () => reject(new Error("Bot protection could not be loaded.")), { once: true });
-      return;
-    }
+  if (recaptchaLoading) return recaptchaLoading;
+  recaptchaLoading = new Promise<void>((resolve, reject) => {
+    document.getElementById("rysen-recaptcha-v3")?.remove();
     const script = document.createElement("script");
+    const fail = () => { clearTimeout(timeout); script.remove(); reject(new Error("Bot protection could not load. Check your connection and try again.")); };
+    const timeout = window.setTimeout(fail, 15000);
     script.id = "rysen-recaptcha-v3";
     script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}&trustedtypes=true`;
     script.async = true;
-    script.defer = true;
-    script.onload = ready;
-    script.onerror = () => reject(new Error("Bot protection could not be loaded."));
+    script.onload = () => { clearTimeout(timeout); if (recaptchaApi()) resolve(); else fail(); };
+    script.onerror = fail;
     document.head.appendChild(script);
-  });
+  }).catch((error) => { recaptchaLoading = null; throw error; });
+  return recaptchaLoading;
 }
 
 async function createRecaptchaToken(siteKey: string) {
@@ -71,6 +69,7 @@ export function ContactForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting) return;
     if (!values.name || !values.email || !values.interest || !values.message) {
       setError("Please complete your name, work email, area of interest, and message.");
       return;
@@ -79,6 +78,7 @@ export function ContactForm() {
       setError("Please enter a valid work email address.");
       return;
     }
+    setError("");
     setSubmitting(true);
     setSubmitted(false);
     try {

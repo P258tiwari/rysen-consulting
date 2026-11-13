@@ -207,3 +207,48 @@ textarea:focus-visible {
     transform: translate3d(0, 0, 0);
   }
 }
+/* Admin workspace: intentionally scoped away from the public site. */
+.admin-page-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem; padding:2rem; }
+.admin-main > .section { padding-top:0; padding-bottom:2rem; background:transparent; }
+.admin-main > section > .max-w-7xl { max-width:none; }
+.admin-shell input:not([type=checkbox]), .admin-shell textarea, .admin-shell select { border-radius: .6rem; border-color:#dce1e8; background-color:#fff; }
+.admin-shell input:focus, .admin-shell textarea:focus, .admin-shell select:focus { outline:2px solid #ff790029; border-color:#ff7900; }
+.admin-shell button:disabled { opacity:.45; cursor:not-allowed; }
+.admin-shell table { font-size:.875rem; }
+.admin-shell th { font-size:.65rem; font-weight:600; letter-spacing:.08em; }
+.admin-shell td { border-color:#e9edf2; }
+.admin-editor-header { padding:1.5rem 0; background:white; border-bottom:1px solid #e2e8f0; }
+.admin-editor-header h1 { font-family:inherit; font-size:1.875rem; font-weight:600; letter-spacing:-.03em; }
+.admin-editor-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:1.5rem; padding:1.5rem 2rem; margin:auto; max-width:1400px; }
+.admin-editor-grid > * { min-width:0; margin-top:0 !important; }
+.admin-editor-grid > section { border:1px solid #e2e8f0; border-radius:1rem; box-shadow:0 2px 4px #18223503; }
+.admin-editor-grid h2 { font-size:1.125rem; }
+.admin-editor-grid > [role=alert], .admin-editor-grid > .admin-editor-actions { grid-column:1/-1; }
+.admin-editor-actions { position:sticky; bottom:1rem; z-index:10; padding:1rem; border:1px solid #e2e8f0; border-radius:1rem; background:#ffffffed; backdrop-filter:blur(12px); box-shadow:0 8px 30px #18223512; }
+@media(min-width:1280px) {
+ .admin-editor-grid { grid-template-columns:minmax(0,1fr) minmax(280px,.55fr); align-items:start; }
+ .admin-editor-grid > section:nth-of-type(1) { grid-column:1; grid-row:2; }
+ .admin-editor-grid > section:nth-of-type(2) { grid-column:1; grid-row:3 / span 2; }
+ .admin-editor-grid > section:nth-of-type(3) { grid-column:2; grid-row:2 / span 2; }
+ .admin-editor-grid > section:nth-of-type(4) { grid-column:2; grid-row:4; }
+ .admin-editor-grid > section:nth-of-type(3) .md\:grid-cols-2, .admin-editor-grid > section:nth-of-type(4) .md\:grid-cols-2 { grid-template-columns:1fr; }
+ .admin-editor-grid > section:nth-of-type(3) .md\:col-span-2, .admin-editor-grid > section:nth-of-type(4) .md\:col-span-2 { grid-column:auto; }
+}
+@media(max-width:639px) { .admin-page-heading { padding:1.5rem 1rem; } .admin-editor-grid { padding:1rem; } .admin-editor-grid > section { padding:1.25rem; } }
+/* Consistent rounded actions throughout the admin workspace. */
+.admin-shell button,
+.admin-shell a.inline-flex,
+.admin-shell a.flex.items-center[class*="rounded-lg"],
+.admin-shell nav a,
+.admin-shell td a.grid,
+.admin-shell input::file-selector-button {
+  border-radius: 9999px;
+}
+/* Inbox rows and metric cards keep their panel shape. */
+.admin-shell button[aria-pressed],
+.admin-shell .grid.grid-cols-3 > button {
+  border-radius: 0;
+}
+.admin-shell .grid.grid-cols-3 > button {
+  border-radius: 1rem;
+}

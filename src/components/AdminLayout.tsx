@@ -35,39 +35,22 @@ export function AdminLayout() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-rysen-soft">
+    <div className="admin-shell min-h-screen bg-[#f5f6f8]">
       <ScrollToTop />
-      <header className="border-b border-white/10 bg-rysen-ink text-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
-            <Logo light />
-            <span className="hidden h-9 w-px bg-white/15 sm:block" />
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white/80">
-              <ShieldCheck className="h-4 w-4 text-rysen-orange" aria-hidden="true" /> Admin Console
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Link to="/" target="_blank" className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-bold text-white/75 transition hover:border-white/30 hover:text-white">
-              View Website <SquareArrowOutUpRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-            <button type="button" onClick={signOut} className="inline-flex items-center gap-2 rounded-full bg-rysen-orange px-4 py-2 text-sm font-bold text-white transition hover:bg-rysen-ember">
-              Sign Out <LogOut className="h-4 w-4" aria-hidden="true" />
-            </button>
-          </div>
-        </div>
+      <aside className="bg-[#171b23] text-white lg:fixed lg:inset-y-0 lg:left-0 lg:z-30 lg:flex lg:w-60 lg:flex-col">
+        <div className="flex items-center justify-between px-6 py-6 lg:block"><Logo light /><p className="mt-3 text-[10px] font-bold uppercase tracking-[0.22em] text-white/40">Workspace / Rysen</p></div>
+        <p className="hidden px-8 pb-2 pt-7 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35 lg:block">Manage</p>
         <AdminNav />
-      </header>
-
-      <main className="flex-1">
-        <Outlet />
-      </main>
-
-      <footer className="border-t border-white/10 bg-rysen-ink text-white/55">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>RYSEN secure administration</p>
-          <p>Blogs · Case Studies · Contact Entries</p>
-        </div>
-      </footer>
+        <div className="mt-auto hidden border-t border-white/10 p-6 lg:block"><ShieldCheck className="mb-3 h-5 w-5 text-rysen-orange" /><p className="text-sm font-semibold">Your admin workspace</p><p className="mt-2 text-xs leading-5 text-white/45">Content, stories and conversations in one place.</p></div>
+      </aside>
+      <div className="min-w-0 lg:ml-60">
+        <header className="flex min-h-20 flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-white px-5 py-4 sm:px-8">
+          <div><p className="text-xs text-slate-400">RYSEN / Administration</p><p className="mt-1 text-sm font-semibold">{location.pathname.includes("resources") ? "Articles" : location.pathname.includes("case-studies") ? "Case studies" : location.pathname.includes("contacts") ? "Enquiries" : "Overview"}</p></div>
+          <div className="flex items-center gap-3"><Link to="/" target="_blank" className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-rysen-orange">View website <SquareArrowOutUpRight className="h-4 w-4" /></Link><span className="h-6 w-px bg-slate-200" /><button type="button" onClick={signOut} className="flex items-center gap-2 text-sm text-slate-500 hover:text-rysen-orange">Sign out <LogOut className="h-4 w-4" /></button></div>
+        </header>
+        <main className="admin-main min-w-0 pb-12"><Outlet key={location.pathname} /></main>
+        <footer className="px-5 py-5 text-xs text-slate-400 sm:px-8">RYSEN administration &middot; Leadership that moves forward.</footer>
+      </div>
     </div>
   );
 }

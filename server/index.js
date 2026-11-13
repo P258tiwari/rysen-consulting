@@ -18,7 +18,11 @@ for (const environmentFile of [".env.local", ".env"]) {
     if (error?.code !== "ENOENT") throw error;
   }
 }
-const databasePath = resolve(serverDirectory, "data", "db.json");
+// Keep production content outside replaceable releases using DATABASE_PATH.
+// The default preserves existing installations and local development data.
+const databasePath = process.env.DATABASE_PATH?.trim()
+  ? resolve(process.env.DATABASE_PATH.trim())
+  : resolve(serverDirectory, "data", "db.json");
 const distributionDirectory = resolve(projectDirectory, "dist");
 const port = Number(process.env.PORT || 8787);
 const host = String(process.env.HOST || (process.env.NODE_ENV === "production" ? "0.0.0.0" : "127.0.0.1"));
@@ -41,8 +45,9 @@ async function ensureDatabase() {
   await mkdir(dirname(databasePath), { recursive: true });
   try {
     await stat(databasePath);
-  } catch {
-    await writeFile(databasePath, JSON.stringify(emptyDatabase, null, 2), "utf8");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+    await writeFile(databasePath, JSON.stringify(emptyDatabase, null, 2), { encoding: "utf8", flag: "wx" });
   }
   const raw = await readFile(databasePath, "utf8");
   const database = JSON.parse(raw);
@@ -340,8 +345,25 @@ async function verifyContactRecaptcha(token, request) {
     });
     if (!verificationResponse.ok) return { ok: false, status: 502, error: "Bot protection could not be verified. Please try again." };
     const verification = await verificationResponse.json();
-    const accepted = verification.success === true && verification.action === "contact" && Number(verification.score) >= recaptchaMinimumScore;
-    return accepted ? { ok: true } : { ok: false, status: 403, error: "Bot-protection verification failed. Please refresh and try again." };
+    const codes = Array.isArray(verification["error-codes"]) ? verification["error-codes"] : [];
+    if (verification.success !== true) {
+      console.warn("Contact reCAPTCHA rejected:", { codes });
+      if (codes.includes("invalid-input-secret") || codes.includes("missing-input-secret")) {
+        return { ok: false, status: 503, error: "Bot protection is misconfigured. Please contact us by email while we resolve it." };
+      }
+      return { ok: false, status: 403, error: codes.includes("timeout-or-duplicate")
+        ? "Verification expired. Please click Send Enquiry again for a fresh verification."
+        : "Google could not validate this verification. Please try again or contact us by email." };
+    }
+    if (verification.action !== "contact") {
+      console.warn("Contact reCAPTCHA action mismatch.");
+      return { ok: false, status: 403, error: "Verification did not match this form. Please refresh the page and try again." };
+    }
+    if (!(Number(verification.score) >= recaptchaMinimumScore)) {
+      console.warn("Contact reCAPTCHA score below threshold:", { score: verification.score, minimum: recaptchaMinimumScore });
+      return { ok: false, status: 403, error: "Google could not confirm this browser session. Please try a regular browser window or contact us by email." };
+    }
+    return { ok: true };
   } catch {
     return { ok: false, status: 502, error: "Bot protection is temporarily unavailable. Please try again." };
   }

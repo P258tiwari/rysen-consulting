@@ -90,3 +90,18 @@ npm run test:api
 ```
 
 The smoke test verifies categories, blogs, case studies, and contacts, then removes its temporary records afterward.
+
+
+## Preserve live content when deploying
+
+Articles, case studies, categories, enquiries and subscribers are stored in the server database, not in the frontend build. Local and production databases do not synchronise.
+
+- Deploy code and built assets without uploading local server/data/db.json or local environment files.
+- Keep the live database on persistent storage. The existing default is server/data/db.json. This is excluded from Git and Docker build contexts.
+- For deployments that replace application folders, set DATABASE_PATH to an absolute path outside the release directory (for example /var/lib/rysen/db.json). The server account must be able to write to that directory.
+- Before changing the path, stop writes/server, back up the existing LIVE database, and copy that live database to the new path. Only then set DATABASE_PATH and restart. A missing path creates a fresh database with starter content; it does not migrate existing data. Never replace it with your local database.
+- For Docker, reuse the same named volume or host bind mount at /app/server/data across deployments. The Dockerfile VOLUME declaration alone is not a guarantee that a replacement container will reuse the same volume. Do not delete that volume during deployments.
+- Keep scheduled backups of the live database and restore-test them. Run one backend process against this JSON file; multi-instance hosting requires a shared database with appropriate concurrency support.
+- After deploying, verify existing articles, case studies and enquiries in the live admin. Source changes do not modify saved records. Changes to saved content must be made through the live admin.
+
+No production storage has been configured by changing this repository; configure and verify the persistent path/volume on the actual host.

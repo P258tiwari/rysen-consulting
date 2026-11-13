@@ -39,6 +39,7 @@ export function AdminBlogEditor() {
   const [source, setSource] = useState<"new" | "admin" | "seed">("new");
   const [message, setMessage] = useState(id ? "Loading article…" : "");
   const [saving, setSaving] = useState(false);
+  const [ready, setReady] = useState(!id);
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
   const [categoryName, setCategoryName] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
@@ -73,6 +74,7 @@ export function AdminBlogEditor() {
         setCategories((current) => current.some((category) => category.slug === slugify(article.category)) ? current : [...current, { id: article.categoryId, name: article.category, slug: slugify(article.category), description: "", createdAt: article.createdAt }]);
         setBackendId(managed?.id ?? null);
         setSource(managed ? "admin" : "seed");
+        setReady(true);
         setMessage("");
       })
       .catch((error) => setMessage(error instanceof Error ? error.message : "Could not load article."));
@@ -96,9 +98,11 @@ export function AdminBlogEditor() {
   async function upload(field: "featuredImage" | "videoFile", event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
+    try {
     const dataUrl = await fileToDataUrl(file);
     update(field, dataUrl);
     if (field === "featuredImage" && !form.featuredImageAlt) update("featuredImageAlt", file.name.replace(/\.[^.]+$/, ""));
+    } catch (error) { setMessage(error instanceof Error ? error.message : "Upload failed. Please try again."); }
   }
 
   async function addCategory(event: FormEvent<HTMLFormElement>) {
@@ -133,6 +137,7 @@ export function AdminBlogEditor() {
   }
 
   async function save(status: "Draft" | "Published") {
+    if (saving || !ready) return;
     if (!form.title.trim() || !form.excerpt.trim() || !form.body.trim()) {
       setMessage("Title, summary, and article content are required.");
       return;
@@ -163,7 +168,7 @@ export function AdminBlogEditor() {
   return (
     <>
       <Seo title={`${id ? "Edit" : "Create"} Article`} description="RYSEN article editor." path={id ? `/admin/resources/${id}/edit` : "/admin/resources/new"} />
-      <section className="border-b border-rysen-ink/10 bg-white py-8">
+      <section className="admin-editor-header">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
             <Link to="/admin/resources" className="inline-flex items-center gap-2 text-sm font-bold text-rysen-charcoal/60 transition hover:text-rysen-orange"><ArrowLeft className="h-4 w-4" /> Back to articles</Link>
@@ -172,14 +177,14 @@ export function AdminBlogEditor() {
             {source === "seed" && <p className="mt-2 text-sm text-rysen-charcoal/60">Saving creates an editable managed version of this built-in article.</p>}
           </div>
           <div className="flex flex-wrap gap-3">
-            <button type="button" disabled={saving} onClick={() => save("Draft")} className="inline-flex items-center gap-2 rounded-full border border-rysen-ink/15 bg-white px-5 py-3 text-sm font-bold text-rysen-ink transition hover:border-rysen-orange disabled:opacity-50"><Save className="h-4 w-4" /> Save Draft</button>
-            <button type="button" disabled={saving} onClick={() => save("Published")} className="inline-flex items-center gap-2 rounded-full bg-orange-sheen px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 disabled:opacity-50"><Send className="h-4 w-4" /> {saving ? "Saving…" : "Publish Article"}</button>
+            <button type="button" disabled={saving || !ready} onClick={() => save("Draft")} className="inline-flex items-center gap-2 rounded-full border border-rysen-ink/15 bg-white px-5 py-3 text-sm font-bold text-rysen-ink transition hover:border-rysen-orange disabled:opacity-50"><Save className="h-4 w-4" /> Save Draft</button>
+            <button type="button" disabled={saving || !ready} onClick={() => save("Published")} className="inline-flex items-center gap-2 rounded-full bg-orange-sheen px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 disabled:opacity-50"><Send className="h-4 w-4" /> {saving ? "Saving…" : "Publish Article"}</button>
           </div>
         </div>
       </section>
 
       <section className="section bg-rysen-soft">
-        <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
+        <div className="admin-editor-grid">
           {message && <p role="alert" className="rounded-lg border border-rysen-orange/20 bg-rysen-ivory px-4 py-3 text-sm font-semibold text-rysen-charcoal/75">{message}</p>}
 
           <section className="rounded-xl border border-rysen-ink/8 bg-white p-6 shadow-sm">
@@ -236,11 +241,7 @@ export function AdminBlogEditor() {
             </div>
           </section>
 
-          <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
-            <Link to="/admin/resources" className="rounded-full border border-rysen-ink/15 px-6 py-3 text-center text-sm font-bold text-rysen-ink">Cancel</Link>
-            <button type="button" disabled={saving} onClick={() => save("Draft")} className="inline-flex items-center justify-center gap-2 rounded-full border border-rysen-ink/15 bg-white px-6 py-3 text-sm font-bold"><Save className="h-4 w-4" /> Save Draft</button>
-            <button type="button" disabled={saving} onClick={() => save("Published")} className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-sheen px-6 py-3 text-sm font-bold text-white"><Send className="h-4 w-4" /> Publish Article</button>
-          </div>
+
         </div>
       </section>
 

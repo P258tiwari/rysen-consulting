@@ -1,3 +1,4 @@
+import { AdminPageHeader } from "../components/AdminPageHeader";
 import { Eye, FilePenLine, FilePlus2, Search, Trash2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -33,11 +34,11 @@ export function AdminBlogs() {
     refresh().then(() => setMessage("")).catch((error) => setMessage(error instanceof Error ? error.message : "Could not load articles."));
   }, []);
 
-  const articles = useMemo(() => backendArticles, [backendArticles]);
+  const articles = useMemo(() => [...backendArticles].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)), [backendArticles]);
 
   const visible = articles.filter((article) => {
     const matchesQuery = `${article.title} ${article.category} ${article.author}`.toLowerCase().includes(query.toLowerCase());
-    const matchesFilter = filter === "All" || (filter === "Built-in" ? article.source === "seed" : article.source === "admin" && article.status === filter);
+    const matchesFilter = filter === "All" || (filter === "Built-in" ? article.source === "seed" : article.status === filter);
     return matchesQuery && matchesFilter;
   });
 
@@ -58,18 +59,7 @@ export function AdminBlogs() {
   return (
     <>
       <Seo title="Blog Admin" description="Manage RYSEN blog articles." path="/admin/resources" />
-      <section className="bg-rysen-ink py-10 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
-          <div>
-            <p className="eyebrow">Content Management</p>
-            <h1 className="mt-4 font-display text-5xl md:text-6xl">Blog articles</h1>
-            <p className="mt-4 max-w-2xl text-lg text-white/65">Review your content library, publish new insights, and keep every article up to date.</p>
-          </div>
-          <Link to="/admin/resources/new" className="inline-flex w-fit items-center gap-2 rounded-full bg-orange-sheen px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5">
-            <FilePlus2 className="h-4 w-4" /> Add New Article
-          </Link>
-        </div>
-      </section>
+      <AdminPageHeader eyebrow="Content library" title="Articles" description="Write, organise and publish insights for your readers." actions={<Link to="/admin/resources/new" className="inline-flex items-center gap-2 rounded-lg bg-rysen-orange px-5 py-3 text-sm font-semibold text-white hover:bg-rysen-ember"><FilePlus2 className="h-4 w-4" />New article</Link>} />
 
       <section className="section bg-rysen-soft">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -96,9 +86,9 @@ export function AdminBlogs() {
               </div>
             </div>
 
-            {message && <p className="border-b border-rysen-ink/10 bg-rysen-ivory px-5 py-3 text-sm font-semibold text-rysen-charcoal/70">{message}</p>}
+            {message && <p role="status" className="border-b border-rysen-ink/10 bg-rysen-ivory px-5 py-3 text-sm font-semibold text-rysen-charcoal/70">{message}</p>}
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Articles table">
               <table className="w-full min-w-[860px] text-left">
                 <thead className="bg-rysen-soft/70 text-xs uppercase tracking-[0.14em] text-rysen-charcoal/55">
                   <tr><th className="px-5 py-4">Article</th><th className="px-5 py-4">Category</th><th className="px-5 py-4">Status</th><th className="px-5 py-4">Publish date</th><th className="px-5 py-4 text-right">Actions</th></tr>
@@ -106,7 +96,7 @@ export function AdminBlogs() {
                 <tbody className="divide-y divide-rysen-ink/8">
                   {visible.map((article) => (
                     <tr key={`${article.source}-${article.id}`} className="align-middle transition hover:bg-rysen-soft/45">
-                      <td className="px-5 py-4"><p className="max-w-md font-semibold text-rysen-ink">{article.title}</p><p className="mt-1 text-xs text-rysen-charcoal/50">By {article.author}</p></td>
+                      <td className="px-5 py-4"><div className="flex items-center gap-3"><img src={article.featuredImage} alt="" className="h-12 w-16 shrink-0 rounded-lg bg-slate-100 object-cover" loading="lazy" /><div><Link to={`/admin/resources/${article.id}/edit`} className="line-clamp-2 max-w-md font-semibold text-rysen-ink hover:text-rysen-orange">{article.title}</Link><p className="mt-1 text-xs text-rysen-charcoal/50">By {article.author}</p></div></div></td>
                       <td className="px-5 py-4 text-sm text-rysen-charcoal/75">{article.category}</td>
                       <td className="px-5 py-4"><StatusBadge article={article} /></td>
                       <td className="px-5 py-4 text-sm text-rysen-charcoal/65">{article.date}</td>
@@ -120,7 +110,7 @@ export function AdminBlogs() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </table><p className="border-t border-slate-100 px-5 py-3 text-xs text-slate-400">Showing {visible.length} of {articles.length} articles</p>
               {visible.length === 0 && <div className="p-10 text-center text-rysen-charcoal/60">No articles match this view.</div>}
             </div>
           </div>

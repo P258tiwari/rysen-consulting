@@ -16,6 +16,7 @@ import {
   type CaseStudy,
 } from "../data/content";
 import { getBackendCaseStudies } from "../utils/api";
+import { clientLogos as trustedLogos } from "../data/clientLogos";
 
 export function Home() {
   const [featuredCaseStudies, setFeaturedCaseStudies] = useState<CaseStudy[]>(seededCaseStudies);
@@ -86,8 +87,8 @@ export function Home() {
           <Reveal>
             <p className="text-center text-xs font-bold uppercase tracking-[0.24em] text-rysen-charcoal/60">Trusted By</p>
             <div className="mt-8 space-y-4">
-              <LogoMarqueeRow logos={trustedLogos.slice(0, 17)} direction="left" />
-              <LogoMarqueeRow logos={trustedLogos.slice(17)} direction="right" />
+              <LogoMarqueeRow logos={trustedLogos.slice(0, Math.ceil(trustedLogos.length / 2))} direction="left" />
+              <LogoMarqueeRow logos={trustedLogos.slice(Math.ceil(trustedLogos.length / 2))} direction="right" />
             </div>
           </Reveal>
         </div>
@@ -336,43 +337,6 @@ export function Home() {
   );
 }
 
-const trustedLogos = [
-  { name: "JSW", src: "/assets/images/logos/trusted/01-jsw.png" },
-  { name: "Vi", src: "/assets/images/logos/trusted/02-vi.png" },
-  { name: "Welspun", src: "/assets/images/logos/trusted/03-welspun.png" },
-  { name: "Wockhardt", src: "/assets/images/logos/trusted/04-wockhardt.png" },
-  { name: "Zydus", src: "/assets/images/logos/trusted/05-zydus.png" },
-  { name: "Glenmark", src: "/assets/images/logos/trusted/06-glenmark.png" },
-  { name: "Hetero", src: "/assets/images/logos/trusted/07-hetero.png" },
-  { name: "Restaurant Brands Asia", src: "/assets/images/logos/trusted/08-restaurant-brands-asia.png" },
-  { name: "Kaya Clinic", src: "/assets/images/logos/trusted/09-kaya-clinic.png" },
-  { name: "KEC International", src: "/assets/images/logos/trusted/10-kec-international.png" },
-  { name: "Estée Lauder", src: "/assets/images/logos/trusted/11-estee-lauder.png" },
-  { name: "Pepe Jeans", src: "/assets/images/logos/trusted/12-pepe-jeans.png" },
-  { name: "SUGAR Cosmetics", src: "/assets/images/logos/trusted/13-sugar-cosmetics.png" },
-  { name: "Metro Shoes", src: "/assets/images/logos/trusted/14-metro-shoes.png" },
-  { name: "K Raheja Corp", src: "/assets/images/logos/trusted/15-k-raheja-corp.png" },
-  { name: "KPIL", src: "/assets/images/logos/trusted/16-kpil.png" },
-  { name: "Vertis Infrastructure Trust", src: "/assets/images/logos/trusted/17-vertis-infrastructure-trust.png" },
-  { name: "Aavas Financiers", src: "/assets/images/logos/trusted/18-aavas-financiers.png" },
-  { name: "ICICI Securities", src: "/assets/images/logos/trusted/19-icici-securities.png" },
-  { name: "Aditya Birla Fashion and Retail", src: "/assets/images/logos/trusted/20-aditya-birla-fashion-retail.png" },
-  { name: "SDA Bocconi Asia Center", src: "/assets/images/logos/trusted/21-sda-bocconi-asia-center.png" },
-  { name: "MET Institute", src: "/assets/images/logos/trusted/22-met-institute.png" },
-  { name: "HDFC Bank", src: "/assets/images/logos/trusted/23-hdfc-bank.png" },
-  { name: "OakNorth", src: "/assets/images/logos/trusted/24-oaknorth.png" },
-  { name: "BankDhofar", src: "/assets/images/logos/trusted/25-bank-dhofar.png" },
-  { name: "Landmark Group", src: "/assets/images/logos/trusted/26-landmark-group.png" },
-  { name: "CFA Institute", src: "/assets/images/logos/trusted/27-cfa-institute.png" },
-  { name: "Seclore", src: "/assets/images/logos/trusted/28-seclore.png" },
-  { name: "IndoSpace", src: "/assets/images/logos/trusted/29-indospace.png" },
-  { name: "Meghmani Group", src: "/assets/images/logos/trusted/30-meghmani-group.png" },
-  { name: "Mumbai Port Authority", src: "/assets/images/logos/trusted/31-mumbai-port-authority.png" },
-  { name: "NMIMS", src: "/assets/images/logos/trusted/32-nmims.png" },
-  { name: "Uplers", src: "/assets/images/logos/trusted/33-uplers.png" },
-  { name: "Khazna", src: "/assets/images/logos/trusted/34-khazna.png" },
-] as const;
-
 type TrustedLogo = (typeof trustedLogos)[number];
 
 function LogoMarqueeRow({ logos, direction }: { logos: readonly TrustedLogo[]; direction: "left" | "right" }) {
@@ -386,7 +350,7 @@ function LogoMarqueeRow({ logos, direction }: { logos: readonly TrustedLogo[]; d
                 <img
                   src={logo.src}
                   alt={duplicate ? "" : logo.name}
-                  className="h-full w-full object-contain grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100"
+                  className={`h-full w-full object-contain grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 ${logo.name === "K Raheja Corp" ? "scale-[1.6]" : logo.name === "OakNorth" ? "scale-[1.8]" : ""}`}
                   loading="lazy"
                 />
               </div>
