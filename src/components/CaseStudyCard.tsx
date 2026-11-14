@@ -16,7 +16,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <>
       <article className="h-full">
-        <button type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-label={`Read case study: ${study.title}`} className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-rysen-ink/10 bg-white text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rysen-orange">
+        <button type="button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-label={`Read case study: ${study.title}`} className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-rysen-ink/10 bg-white text-rysen-ink text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rysen-orange">
           <div className="relative w-full overflow-hidden bg-rysen-ink">
             <img src={study.image} alt={study.imageAlt} className="aspect-[16/9] w-full object-cover transition duration-700 group-hover:scale-[1.04] motion-reduce:transform-none" loading="lazy" decoding="async" />
             <div className="absolute inset-0 bg-gradient-to-t from-rysen-ink/70 to-transparent" />

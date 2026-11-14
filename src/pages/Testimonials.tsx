@@ -9,7 +9,7 @@ export function Testimonials() {
     <>
       <Seo
         title="Testimonials"
-        description="Read testimonials from leaders and organisations who have worked with RYSEN Leadership and Coaching."
+        description="Read testimonials from leaders and organisations who have worked with RYSEN Leadership and Consulting."
         path="/testimonials"
       />
       <section className="page-hero">

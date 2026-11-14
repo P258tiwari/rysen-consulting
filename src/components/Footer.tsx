@@ -21,7 +21,7 @@ export function Footer() {
               <Phone className="h-4 w-4 text-rysen-orange" aria-hidden="true" /> {contact.phone}
             </a>
             <span className="inline-flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-rysen-orange" aria-hidden="true" /> India, UK, US & Gulf Markets
+              <MapPin className="h-4 w-4 text-rysen-orange" aria-hidden="true" /> India, EU, UK, US & Gulf Markets
             </span>
           </div>
         </div>
@@ -62,7 +62,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>Copyright {new Date().getFullYear()} RYSEN Leadership and Coaching. All rights reserved.</p>
+          <p>Copyright {new Date().getFullYear()} RYSEN Leadership and Consulting. All rights reserved.</p>
           <div className="flex gap-5">
             <Link to="/privacy-policy" className="hover:text-white">
               Privacy Policy

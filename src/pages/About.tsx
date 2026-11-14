@@ -13,7 +13,7 @@ export function About() {
     <>
       <Seo
         title="About Bidisha Banerjee"
-        description="Learn about Bidisha Banerjee, Founder & CEO of RYSEN Leadership and Coaching, executive coach, facilitator, talent strategist, author, and keynote speaker."
+        description="Learn about Bidisha Banerjee, Founder & CEO of RYSEN Leadership and Consulting, executive coach, facilitator, talent strategist, author, and keynote speaker."
         path="/about"
       />
       <section className="page-hero">

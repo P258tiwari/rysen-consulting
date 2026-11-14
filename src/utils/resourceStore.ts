@@ -94,7 +94,7 @@ export function getSeedCategories(): ResourceCategory[] {
     id: `seed-category-${slugify(name)}`,
     name,
     slug: slugify(name),
-    description: `${name} insights from RYSEN Leadership and Coaching.`,
+    description: `${name} insights from RYSEN Leadership and Consulting.`,
     createdAt: `2026-01-${String(index + 1).padStart(2, "0")}`,
   }));
 }

@@ -36,7 +36,7 @@ export function Seo({ title, description, path = "/", image = "/assets/rysen-log
   useEffect(() => {
     const configuredOrigin = String(import.meta.env.VITE_SITE_URL || "").replace(/\/$/, "");
     const origin = configuredOrigin || window.location.origin;
-    const fullTitle = `${title} | RYSEN Leadership and Coaching`;
+    const fullTitle = `${title} | RYSEN Leadership and Consulting`;
     const url = `${origin}${path}`;
     const imageUrl = image.startsWith("http") ? image : `${origin}${image}`;
     const preventIndexing = noIndex || path.startsWith("/admin");
@@ -48,7 +48,7 @@ export function Seo({ title, description, path = "/", image = "/assets/rysen-log
     setMeta('meta[property="og:description"]', "content", description);
     setMeta('meta[property="og:type"]', "content", "website");
     setMeta('meta[property="og:url"]', "content", url);
-    setMeta('meta[property="og:site_name"]', "content", "RYSEN Leadership and Coaching");
+    setMeta('meta[property="og:site_name"]', "content", "RYSEN Leadership and Consulting");
     setMeta('meta[property="og:locale"]', "content", "en_IN");
     setMeta('meta[property="og:image"]', "content", imageUrl);
     setMeta('meta[name="twitter:card"]', "content", "summary_large_image");

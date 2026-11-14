@@ -31,20 +31,20 @@ export function Home() {
     <>
       <Seo
         title="Building leaders who rise"
-        description="RYSEN Leadership and Coaching partners with organisations to develop future-ready leaders, strengthen executive presence, transform culture, and unlock performance."
+        description="RYSEN Leadership and Consulting partners with organisations to develop future-ready leaders, strengthen executive presence, transform culture, and unlock performance."
       />
       <section className="relative overflow-hidden bg-rysen-ivory">
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/80 to-transparent" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1.02fr_0.98fr] lg:px-8">
           <Reveal>
             <p className="mb-5 inline-flex rounded-full border border-rysen-orange/20 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-rysen-orange">
-              RYSEN Leadership and Coaching
+              RYSEN Leadership and Consulting
             </p>
             <h1 className="max-w-3xl font-display text-4xl leading-[1.05] text-rysen-ink sm:text-5xl lg:text-6xl">
               Building leaders who rise with clarity, confidence, and measurable impact.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-rysen-charcoal/75 md:text-xl">
-              RYSEN Leadership and Coaching partners with organisations to develop future-ready leaders,
+              RYSEN Leadership and Consulting partners with organisations to develop future-ready leaders,
               strengthen executive presence, transform culture, and unlock sustainable performance.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -57,19 +57,15 @@ export function Home() {
           <Reveal delay={0.14}>
             <div className="relative overflow-hidden rounded-lg bg-rysen-ink shadow-executive">
               <img
-                src="/assets/images/leadership-workshop-hero.webp"
-                alt="Facilitator guiding Indian business professionals through a leadership workshop"
-                className="aspect-[16/11] w-full object-cover"
-                width={1440}
-                height={990}
+                src="/assets/images/bidisha-home-hero-expanded-v2.webp"
+                alt="Bidisha Banerjee facilitating a RYSEN leadership workshop"
+                className="h-auto w-full"
+                width={1514}
+                height={1039}
                 decoding="async"
                 fetchPriority="high"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-rysen-ink/45 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-lg border border-white/10 bg-white/10 p-5 text-white backdrop-blur">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-rysen-orange">Leadership Lab</p>
-                <p className="mt-2 text-2xl font-semibold">Clarity to impact</p>
-              </div>
+
             </div>
           </Reveal>
         </div>

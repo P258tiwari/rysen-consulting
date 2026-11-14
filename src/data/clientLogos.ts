@@ -1,4 +1,4 @@
-// Exact client set from Updated Client slide.pptx.
+// Client logos from Updated Client slide.pptx and subsequent supplied additions.
 export const clientLogos = [
   {
     "name": "Pepe Jeans",
@@ -99,5 +99,13 @@ export const clientLogos = [
   {
     "name": "OakNorth",
     "src": "/assets/images/logos/clients/oaknorth.webp"
+  },
+  {
+    "name": "Aditya Birla Fashion & Retail",
+    "src": "/assets/images/logos/clients/abfrl.png"
+  },
+  {
+    "name": "Vertis Infrastructure Trust",
+    "src": "/assets/images/logos/clients/vertis.png"
   }
 ] as const;

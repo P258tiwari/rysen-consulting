@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: only light;
   color: #1e1e1e;
   background: #fff8ef;
   font-family: Inter, Aptos, "Segoe UI", Arial, sans-serif;

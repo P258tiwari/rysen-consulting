@@ -17,6 +17,13 @@ export const workGallery = [
         "width": 1800,
         "height": 1201,
         "title": "Accelerating the Transition of Emerging Talent into First-Time People Leaders"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-01-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-01-nov14-1-thumb.webp",
+        "width": 1800,
+        "height": 1201,
+        "title": "Accelerating the Transition of Emerging Talent into First-Time People Leaders"
       }
     ]
   },
@@ -64,6 +71,13 @@ export const workGallery = [
         "width": 1800,
         "height": 805,
         "title": "Building Executive Gravitas and Strategic Influence for Infrastructure Investment Leaders"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-04-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-04-nov14-1-thumb.webp",
+        "width": 1800,
+        "height": 805,
+        "title": "Building Executive Gravitas and Strategic Influence for Infrastructure Investment Leaders"
       }
     ]
   },
@@ -91,13 +105,6 @@ export const workGallery = [
         "width": 715,
         "height": 1600,
         "title": "Mastering Non-Verbal Communication and Leadership Presence for Strategic Impact"
-      },
-      {
-        "src": "/assets/images/work-gallery/work-12-1-updated.webp",
-        "thumbnail": "/assets/images/work-gallery/work-12-1-updated-thumb.webp",
-        "width": 715,
-        "height": 1600,
-        "title": "Harnessing Strategic Storytelling and Persuasive Communication to Inspire and Drive Alignment"
       }
     ]
   },
@@ -118,6 +125,13 @@ export const workGallery = [
         "width": 960,
         "height": 1280,
         "title": "Navigating Dining Etiquette and Professional Decorum for High-Level Stakeholder Engagements"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-06-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-06-nov14-1-thumb.webp",
+        "width": 1200,
+        "height": 1600,
+        "title": "Cultivating Executive Gravitas and Command for High-Impact Leadership Interactions"
       }
     ]
   },
@@ -130,6 +144,20 @@ export const workGallery = [
         "thumbnail": "/assets/images/work-gallery/work-07-1-thumb.webp",
         "width": 1280,
         "height": 960,
+        "title": "Elevating People Leadership through Strategic Communication, Stakeholder Alignment, and Conflict Mastery"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-07-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-07-nov14-1-thumb.webp",
+        "width": 1600,
+        "height": 1200,
+        "title": "Elevating People Leadership through Strategic Communication, Stakeholder Alignment, and Conflict Mastery"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-07-nov14-2.webp",
+        "thumbnail": "/assets/images/work-gallery/work-07-nov14-2-thumb.webp",
+        "width": 1200,
+        "height": 1600,
         "title": "Elevating People Leadership through Strategic Communication, Stakeholder Alignment, and Conflict Mastery"
       }
     ]
@@ -150,6 +178,13 @@ export const workGallery = [
         "thumbnail": "/assets/images/work-gallery/work-08-2-thumb.webp",
         "width": 1280,
         "height": 960,
+        "title": "Empowering R&D Scientists to Transition from Research Expertise to People Leadership"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-08-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-08-nov14-1-thumb.webp",
+        "width": 960,
+        "height": 1280,
         "title": "Empowering R&D Scientists to Transition from Research Expertise to People Leadership"
       }
     ]
@@ -178,13 +213,6 @@ export const workGallery = [
         "width": 1280,
         "height": 960,
         "title": "Empowering Women to Rise, Lead, and Drive Strategic Organizational Impact"
-      },
-      {
-        "src": "/assets/images/work-gallery/work-09-4.webp",
-        "thumbnail": "/assets/images/work-gallery/work-09-4-thumb.webp",
-        "width": 1280,
-        "height": 960,
-        "title": "Empowering Women to Rise, Lead, and Drive Strategic Organizational Impact"
       }
     ]
   },
@@ -197,6 +225,20 @@ export const workGallery = [
         "thumbnail": "/assets/images/work-gallery/work-10-1-thumb.webp",
         "width": 1280,
         "height": 960,
+        "title": "Equipping Financial Leaders with Strategic Influence and High-Performance Management Capability"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-10-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-10-nov14-1-thumb.webp",
+        "width": 1280,
+        "height": 960,
+        "title": "Equipping Financial Leaders with Strategic Influence and High-Performance Management Capability"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-10-nov14-2.webp",
+        "thumbnail": "/assets/images/work-gallery/work-10-nov14-2-thumb.webp",
+        "width": 960,
+        "height": 1280,
         "title": "Equipping Financial Leaders with Strategic Influence and High-Performance Management Capability"
       }
     ]
@@ -211,6 +253,20 @@ export const workGallery = [
         "width": 1280,
         "height": 960,
         "title": "Fostering Leadership Excellence and Professional Rigor in a Global Financial Institution"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-11-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-11-nov14-1-thumb.webp",
+        "width": 960,
+        "height": 1280,
+        "title": "Fostering Leadership Excellence and Professional Rigor in a Global Financial Institution"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-11-nov14-2.webp",
+        "thumbnail": "/assets/images/work-gallery/work-11-nov14-2-thumb.webp",
+        "width": 960,
+        "height": 1280,
+        "title": "Fostering Leadership Excellence and Professional Rigor in a Global Financial Institution"
       }
     ]
   },
@@ -224,6 +280,20 @@ export const workGallery = [
         "width": 960,
         "height": 1280,
         "title": "Mastering Executive Gravitas, Strategic Influence, and Boardroom Authority"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-13-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-13-nov14-1-thumb.webp",
+        "width": 1280,
+        "height": 960,
+        "title": "Mastering Executive Gravitas, Strategic Influence, and Boardroom Authority"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-13-nov14-2.webp",
+        "thumbnail": "/assets/images/work-gallery/work-13-nov14-2-thumb.webp",
+        "width": 960,
+        "height": 1280,
+        "title": "Mastering Executive Gravitas, Strategic Influence, and Boardroom Authority"
       }
     ]
   },
@@ -232,10 +302,24 @@ export const workGallery = [
     "title": "Refining Executive Influence, Relational Intelligence, and Leadership Presence",
     "images": [
       {
-        "src": "/assets/images/work-gallery/work-16-1-updated.webp",
-        "thumbnail": "/assets/images/work-gallery/work-16-1-updated-thumb.webp",
+        "src": "/assets/images/work-gallery/work-16-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-16-nov14-1-thumb.webp",
+        "width": 1280,
+        "height": 960,
+        "title": "Refining Executive Influence, Relational Intelligence, and Leadership Presence"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-16-nov14-2.webp",
+        "thumbnail": "/assets/images/work-gallery/work-16-nov14-2-thumb.webp",
         "width": 960,
         "height": 1280,
+        "title": "Refining Executive Influence, Relational Intelligence, and Leadership Presence"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-16-nov14-3.webp",
+        "thumbnail": "/assets/images/work-gallery/work-16-nov14-3-thumb.webp",
+        "width": 1280,
+        "height": 960,
         "title": "Refining Executive Influence, Relational Intelligence, and Leadership Presence"
       }
     ]
@@ -263,13 +347,6 @@ export const workGallery = [
         "thumbnail": "/assets/images/work-gallery/work-17-3-thumb.webp",
         "width": 1280,
         "height": 960,
-        "title": "Shaping Leadership Perspectives for Global Impact at a Global Leadership Offsite"
-      },
-      {
-        "src": "/assets/images/work-gallery/work-17-4.webp",
-        "thumbnail": "/assets/images/work-gallery/work-17-4-thumb.webp",
-        "width": 1800,
-        "height": 1350,
         "title": "Shaping Leadership Perspectives for Global Impact at a Global Leadership Offsite"
       }
     ]
@@ -306,10 +383,24 @@ export const workGallery = [
     "title": "Translating Immersive Simulation Insights into Enterprise Accountability and Systems Thinking",
     "images": [
       {
-        "src": "/assets/images/work-gallery/work-19-1.webp",
-        "thumbnail": "/assets/images/work-gallery/work-19-1-thumb.webp",
+        "src": "/assets/images/work-gallery/work-19-nov14-1.webp",
+        "thumbnail": "/assets/images/work-gallery/work-19-nov14-1-thumb.webp",
+        "width": 916,
+        "height": 1377,
+        "title": "Translating Immersive Simulation Insights into Enterprise Accountability and Systems Thinking"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-19-nov14-2.webp",
+        "thumbnail": "/assets/images/work-gallery/work-19-nov14-2-thumb.webp",
         "width": 960,
-        "height": 951,
+        "height": 1280,
+        "title": "Translating Immersive Simulation Insights into Enterprise Accountability and Systems Thinking"
+      },
+      {
+        "src": "/assets/images/work-gallery/work-19-nov14-3.webp",
+        "thumbnail": "/assets/images/work-gallery/work-19-nov14-3-thumb.webp",
+        "width": 960,
+        "height": 1280,
         "title": "Translating Immersive Simulation Insights into Enterprise Accountability and Systems Thinking"
       }
     ]

@@ -4,7 +4,7 @@ import { Seo } from "../components/Seo";
 export function TermsOfService() {
   return (
     <>
-      <Seo title="Terms of Service" description="Terms of service for RYSEN Leadership and Coaching." path="/terms-of-service" />
+      <Seo title="Terms of Service" description="Terms of service for RYSEN Leadership and Consulting." path="/terms-of-service" />
       <section className="section bg-rysen-ivory">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Reveal>
@@ -12,7 +12,7 @@ export function TermsOfService() {
             <h1 className="font-display text-5xl text-rysen-ink">Terms of Service</h1>
             <div className="prose-rysen mt-8">
               <p>
-                This website provides information about RYSEN Leadership and Coaching services, speaking engagements, and insights. Website content is for general information and does not create a client engagement by itself.
+                This website provides information about RYSEN Leadership and Consulting services, speaking engagements, and insights. Website content is for general information and does not create a client engagement by itself.
               </p>
               <p>
                 Consulting, coaching, facilitation, assessment, and speaking services are governed by written proposals or agreements confirmed with each client.

@@ -9,7 +9,7 @@ export function Contact() {
     <>
       <Seo
         title="Contact"
-        description="Contact RYSEN Leadership and Coaching to discuss leadership development, coaching, AI, talent strategy, culture transformation, or speaking engagements."
+        description="Contact RYSEN Leadership and Consulting to discuss leadership development, coaching, AI, talent strategy, culture transformation, or speaking engagements."
         path="/contact"
       />
       <section className="page-hero">

@@ -84,7 +84,7 @@ async function ensureDatabase() {
         .map((blog) => {
           const slug = slugify(blog.category);
           categorySlugs.add(slug);
-          return { id: `category-${slug}`, name: blog.category, slug, description: `${blog.category} insights from RYSEN Leadership and Coaching.`, createdAt: timestamp, updatedAt: timestamp };
+          return { id: `category-${slug}`, name: blog.category, slug, description: `${blog.category} insights from RYSEN Leadership and Consulting.`, createdAt: timestamp, updatedAt: timestamp };
         }),
     ];
     database.meta = { ...(database.meta || {}), blogsSeeded: true };
