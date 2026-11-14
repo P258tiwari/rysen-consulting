@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { services } from "../data/content";
 import { ButtonLink } from "./ButtonLink";
 import { Logo } from "./Logo";
@@ -13,9 +13,21 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 8);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const updateScrolled = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrolled);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/40 bg-rysen-ivory/90 backdrop-blur-xl">
+    <header className={`sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-300 motion-reduce:transition-none ${
+      scrolled
+        ? "border-rysen-ink/10 bg-white/95 shadow-sm backdrop-blur-xl"
+        : `border-transparent ${pathname === "/" ? "bg-[#fffefc]" : "bg-rysen-ivory"}`
+    }`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
         <Logo large />
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">

@@ -47,6 +47,10 @@ export const defaultResourceImages = [
   "/assets/images/bidisha-executive-coaching.webp",
 ];
 
+export function getResourceImagePosition(src: string) {
+  return src.split("?")[0].endsWith("/bidisha-welspun-program.webp") ? "center 25%" : "center";
+}
+
 export function slugify(value: string) {
   return value
     .toLowerCase()

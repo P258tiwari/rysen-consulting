@@ -329,10 +329,10 @@ export const workGallery = [
     "title": "Shaping Leadership Perspectives for Global Impact at a Global Leadership Offsite",
     "images": [
       {
-        "src": "/assets/images/work-gallery/work-17-1.webp",
-        "thumbnail": "/assets/images/work-gallery/work-17-1-thumb.webp",
-        "width": 1800,
-        "height": 1350,
+        "src": "/assets/images/work-gallery/work-17-table-09.webp",
+        "thumbnail": "/assets/images/work-gallery/work-17-table-09-thumb.webp",
+        "width": 1280,
+        "height": 960,
         "title": "Shaping Leadership Perspectives for Global Impact at a Global Leadership Offsite"
       },
       {
@@ -343,8 +343,8 @@ export const workGallery = [
         "title": "Shaping Leadership Perspectives for Global Impact at a Global Leadership Offsite"
       },
       {
-        "src": "/assets/images/work-gallery/work-17-3.webp",
-        "thumbnail": "/assets/images/work-gallery/work-17-3-thumb.webp",
+        "src": "/assets/images/work-gallery/work-17-table-06.webp",
+        "thumbnail": "/assets/images/work-gallery/work-17-table-06-thumb.webp",
         "width": 1280,
         "height": 960,
         "title": "Shaping Leadership Perspectives for Global Impact at a Global Leadership Offsite"
@@ -383,10 +383,10 @@ export const workGallery = [
     "title": "Translating Immersive Simulation Insights into Enterprise Accountability and Systems Thinking",
     "images": [
       {
-        "src": "/assets/images/work-gallery/work-19-nov14-1.webp",
-        "thumbnail": "/assets/images/work-gallery/work-19-nov14-1-thumb.webp",
-        "width": 916,
-        "height": 1377,
+        "src": "/assets/images/work-gallery/work-19-discussion.webp",
+        "thumbnail": "/assets/images/work-gallery/work-19-discussion-thumb.webp",
+        "width": 960,
+        "height": 1280,
         "title": "Translating Immersive Simulation Insights into Enterprise Accountability and Systems Thinking"
       },
       {

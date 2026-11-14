@@ -18,7 +18,7 @@ import { NewsletterSignup } from "../components/NewsletterSignup";
 import { Reveal } from "../components/Reveal";
 import { Seo } from "../components/Seo";
 import { getBackendBlog, getBackendBlogs } from "../utils/api";
-import { articleBodyToHtml, getAllArticles, type ResourceArticle } from "../utils/resourceStore";
+import { articleBodyToHtml, getAllArticles, getResourceImagePosition, type ResourceArticle } from "../utils/resourceStore";
 
 function getVideoEmbedUrl(url: string) {
   if (!url) return "";
@@ -125,7 +125,7 @@ export function ResourceArticle() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <img src={article.featuredImage} alt={article.featuredImageAlt || `${article.title} visual`} className="aspect-[16/10] w-full rounded-lg object-cover shadow-executive" />
+            <img src={article.featuredImage} alt={article.featuredImageAlt || `${article.title} visual`} style={{ objectPosition: getResourceImagePosition(article.featuredImage) }} className="aspect-[16/10] w-full rounded-lg object-cover shadow-executive" />
           </Reveal>
         </div>
       </section>
@@ -178,7 +178,7 @@ export function ResourceArticle() {
               {recommended.map((item, index) => (
                 <Reveal key={item.id} delay={index * 0.05}>
                   <article className="flex h-full flex-col overflow-hidden rounded-lg border border-rysen-ink/10 bg-rysen-soft">
-                    <img src={item.featuredImage} alt={item.featuredImageAlt || item.title} loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
+                    <img src={item.featuredImage} alt={item.featuredImageAlt || item.title} style={{ objectPosition: getResourceImagePosition(item.featuredImage) }} loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
                     <div className="flex flex-1 flex-col p-6">
                       <p className="text-xs font-bold uppercase tracking-[0.18em] text-rysen-orange">{item.category}</p>
                       <h3 className="mt-4 text-2xl font-semibold leading-tight text-rysen-ink">{item.title}</h3>

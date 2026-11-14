@@ -31,7 +31,7 @@ export function NewsletterSignup({ compact = false, dark = false }: NewsletterSi
   return (
     <form onSubmit={submit} className={compact ? "mt-5" : "mt-7"}>
       <label className="sr-only" htmlFor={compact ? "footer-newsletter-email" : "article-newsletter-email"}>Work email</label>
-      <div className={`flex gap-2 ${compact ? "" : "flex-col sm:flex-row"}`}>
+      <div className={`flex ${compact ? "gap-0" : "flex-col gap-2 sm:flex-row"}`}>
         <div className="relative min-w-0 flex-1">
           <Mail className={`pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 ${dark ? "text-white/45" : "text-rysen-charcoal/45"}`} aria-hidden="true" />
           <input
@@ -42,11 +42,11 @@ export function NewsletterSignup({ compact = false, dark = false }: NewsletterSi
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder="Work email"
-            className={`min-h-12 w-full rounded-full border py-3 pl-11 pr-4 text-sm outline-none ${dark ? "border-white/10 bg-white/10 text-white placeholder:text-white/40 focus:border-rysen-orange" : "border-rysen-ink/10 bg-white text-rysen-ink placeholder:text-rysen-charcoal/40 focus:border-rysen-orange"}`}
+            className={`min-h-12 w-full border py-3 pl-11 pr-4 text-sm outline-none ${compact ? "h-full rounded-l-full rounded-r-none border-r-0" : "rounded-full"} ${dark ? "border-white/10 bg-white/10 text-white placeholder:text-white/40 focus:border-rysen-orange" : "border-rysen-ink/10 bg-white text-rysen-ink placeholder:text-rysen-charcoal/40 focus:border-rysen-orange"}`}
           />
         </div>
         <input className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(event) => setWebsite(event.target.value)} name="website" />
-        <button disabled={submitting} className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-rysen-orange px-5 py-3 text-sm font-bold text-white transition hover:bg-rysen-amber disabled:opacity-60">
+        <button disabled={submitting} className={`inline-flex min-h-12 shrink-0 items-center justify-center gap-2 ${compact ? "rounded-l-none rounded-r-full" : "rounded-full"} bg-rysen-orange px-5 py-3 text-sm font-bold text-white transition hover:bg-rysen-amber disabled:opacity-60`}>
           {submitting ? "Joining…" : "Join"} <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </button>
       </div>

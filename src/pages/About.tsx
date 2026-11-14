@@ -1,6 +1,5 @@
 import { Award, Globe2 } from "lucide-react";
 import { Reveal } from "../components/Reveal";
-import { SectionHeader } from "../components/SectionHeader";
 import { Seo } from "../components/Seo";
 import { credentials, industries } from "../data/content";
 import { BooksPublications } from "../components/BooksPublications";
@@ -38,7 +37,7 @@ export function About() {
               <div className="p-6">
               <Globe2 className="h-9 w-9 text-rysen-orange" aria-hidden="true" />
               <p className="mt-5 text-lg leading-8 text-white/80">
-                Facilitating learning journeys for senior leaders across India and international markets including the UK, US, and Gulf countries.
+                Facilitating learning journeys for senior leaders across India and international markets including the EU, UK, US, and Gulf countries.
               </p>
               </div>
             </div>
@@ -83,21 +82,26 @@ export function About() {
         </div>
       </section>
 
-      <section className="section bg-white">
+      <section aria-labelledby="credentials-title" className="section bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <SectionHeader eyebrow="Credentials" title="Certified, international, and deeply grounded in people systems." />
+            <p className="eyebrow">Credentials</p>
+            <h2 id="credentials-title" className="mt-4 font-display text-4xl leading-tight text-rysen-ink sm:text-5xl">
+              Qualifications &amp; certifications
+            </h2>
           </Reveal>
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {credentials.map((credential, index) => (
-              <Reveal key={credential} delay={index * 0.03}>
-                <div className="flex h-full gap-4 rounded-lg border border-rysen-ink/10 bg-rysen-soft p-5">
-                  <Award className="h-6 w-6 shrink-0 text-rysen-orange" aria-hidden="true" />
-                  <p className="font-semibold leading-7 text-rysen-charcoal/80">{credential}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.08}>
+            <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+              {credentials.map((credential) => (
+                <li key={credential} className="flex items-center gap-4 rounded-xl border border-rysen-ink/10 bg-[#fcfaf7] px-5 py-6 sm:min-h-28">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rysen-orange/10">
+                    <Award className="h-5 w-5 text-rysen-orange" strokeWidth={1.7} aria-hidden="true" />
+                  </span>
+                  <p className="text-base font-medium leading-6 text-rysen-charcoal">{credential}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 

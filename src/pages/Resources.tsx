@@ -5,7 +5,7 @@ import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { Seo } from "../components/Seo";
 import { getBackendBlogs } from "../utils/api";
-import { getAllArticles, getAllCategories, type ResourceArticle, type ResourceCategory } from "../utils/resourceStore";
+import { getAllArticles, getAllCategories, getResourceImagePosition, type ResourceArticle, type ResourceCategory } from "../utils/resourceStore";
 
 export function Resources() {
   const [articles, setArticles] = useState<ResourceArticle[]>([]);
@@ -82,6 +82,7 @@ export function Resources() {
                     src={post.featuredImage}
                     alt={post.featuredImageAlt || `${post.category} article visual`}
                     className="aspect-[16/9] w-full object-cover"
+                    style={{ objectPosition: getResourceImagePosition(post.featuredImage) }}
                     loading="lazy"
                     decoding="async"
                   />

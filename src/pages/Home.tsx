@@ -57,11 +57,11 @@ export function Home() {
           <Reveal delay={0.14}>
             <div className="relative overflow-hidden rounded-lg bg-rysen-ink shadow-executive">
               <img
-                src="/assets/images/bidisha-home-hero-expanded-v2.webp"
+                src="/assets/images/bidisha-home-hero-original-logo.webp"
                 alt="Bidisha Banerjee facilitating a RYSEN leadership workshop"
                 className="h-auto w-full"
-                width={1514}
-                height={1039}
+                width={1515}
+                height={1038}
                 decoding="async"
                 fetchPriority="high"
               />
